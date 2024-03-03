@@ -140,7 +140,7 @@ public class GameController : MonoBehaviour
             for (int j = i + 1; j < amountOfShapes; j++)
             {
                 var secondShape = shapes[j].GetComponent<ShapeController>();
-                CompareShapes(firstShape, secondShape);
+                ValidateShapes(firstShape, secondShape);
             }
         }
     }
@@ -162,18 +162,18 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void CompareShapes(ShapeController firstShape, ShapeController secondShape)
+    private void ValidateShapes(ShapeController firstShape, ShapeController secondShape)
     {
         for (int i = 0; i < firstShape.Lines.Count; i++)
         {
             for (int j = 0; j < secondShape.Lines.Count; j++)
             {
-                CheckLinesIntersection(firstShape.Lines[i].GetComponent<LineRenderer>(), secondShape.Lines[j].GetComponent<LineRenderer>());
+                MarkIntersectingLines(firstShape.Lines[i].GetComponent<LineRenderer>(), secondShape.Lines[j].GetComponent<LineRenderer>());
             }
         }
     }
 
-    private void CheckLinesIntersection(LineRenderer firstLine, LineRenderer secondLine)
+    private void MarkIntersectingLines(LineRenderer firstLine, LineRenderer secondLine)
     {
         var result = FasterLineSegmentIntersection(
             firstLine.GetPosition(0),
