@@ -164,6 +164,7 @@ public class GameController : MonoBehaviour
 
     private void ValidateShapes(ShapeController firstShape, ShapeController secondShape)
     {
+        // TODO: move logic to a lib and make optimizations to not check adjustent lines
         for (int i = 0; i < firstShape.Lines.Count; i++)
         {
             for (int j = 0; j < secondShape.Lines.Count; j++)
