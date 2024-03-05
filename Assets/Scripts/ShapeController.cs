@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class ShapeController : MonoBehaviour
 {
-    public int amountOfLines = 5;
+    public int amountOfLines = 50;
     public List<GameObject> Lines;
 }
